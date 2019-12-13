@@ -1,22 +1,24 @@
-import React,{ useState } from 'react';
+import React,{ useState, useContext } from 'react';
+import  SmurfContext  from './context/SmurfContext';
 
 
-const SmurfForm = (props) => {
-    const [smurf, setSmurf] = useState({
+const SmurfForm = () => {
+    const { smurf, addNewSmurf } = useContext(SmurfContext);
+    const [smurfs, setSmurfs] = useState({
         name: '',
         height: '',
         age: ''
     });
 
     const handleChange = event => {
-        setSmurf({
-            ...smurf, [event.target.name]: event.target.value  
+        setSmurfs({
+            ...smurfs, [event.target.name]: event.target.value  
         })
     }
 
     const submitForm = (event) => {
         event.preventDefault()
-        props.addNewSmurf(smurf)
+        addNewSmurf(smurf)
     }
 
         return (
@@ -42,7 +44,7 @@ const SmurfForm = (props) => {
                 type="text"/>
                 </label>
 
-                <button type="submit">Add New Smurf</button>
+                <button>Add New Smurf</button>
             </form>
         )
     }    

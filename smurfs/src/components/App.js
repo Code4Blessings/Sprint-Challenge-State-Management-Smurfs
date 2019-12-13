@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Smurfs from "./Smurfs";
 import SmurfForm from "./SmurfForm";
+import SmurfContext from "./context/SmurfContext";
 import "./App.css";
 
 
 function App() {
-  const [smurfs, setSmurfs] = useState([
+  const [smurf, setSmurf] = useState([
     {
       name: 'Smurfette',
       age: '100',
@@ -19,18 +20,20 @@ function App() {
       age: smurf.age,
       height: smurf.height
     }
-    setSmurfs([...smurfs, newSmurf])
+    setSmurf([...smurf, newSmurf])
   }
 
  
     return (
       <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-          <Smurfs />
-          <SmurfForm />
+        <SmurfContext.Provider value={{smurf, addNewSmurf}}>
+          <h1>SMURFS! 2.0 W/ Redux</h1>
+          <div>Welcome to your state management version of Smurfs!</div>
+          <div>Start inside of your `src/index.js` file!</div>
+          <div>Have fun!</div>
+            <SmurfForm  addNewSmurf={addNewSmurf} />
+            <Smurfs smurfs={smurf} />
+        </SmurfContext.Provider>
       </div>
     );
   }
