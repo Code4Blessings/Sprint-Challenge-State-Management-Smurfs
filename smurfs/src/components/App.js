@@ -6,19 +6,13 @@ import "./App.css";
 
 
 function App() {
-  const [smurf, setSmurf] = useState([
-    {
-      name: 'Smurfette',
-      age: '100',
-      height: '2ft'
-    }
-  ]);
+  const [smurf, setSmurf] = useState([]);
 
   const addNewSmurf = smurf => {
     const newSmurf = {
       name: smurf.name,
       age: smurf.age,
-      height: smurf.height
+      height: smurf.height,
     }
     setSmurf([...smurf, newSmurf])
   }
@@ -31,8 +25,8 @@ function App() {
           <div>Welcome to your state management version of Smurfs!</div>
           <div>Start inside of your `src/index.js` file!</div>
           <div>Have fun!</div>
-            <SmurfForm  addNewSmurf={addNewSmurf} />
-            <Smurfs smurfs={smurf} />
+            <SmurfForm />
+            <Smurfs />
         </SmurfContext.Provider>
       </div>
     );

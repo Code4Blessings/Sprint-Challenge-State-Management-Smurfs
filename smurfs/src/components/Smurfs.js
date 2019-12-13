@@ -6,11 +6,11 @@ const Smurfs = () => {
     const { smurf} = useContext(SmurfContext);
     return (
        <div className="smurf-container">
-      {smurf.map(smurf => (
+      {smurf.map(blueGuy => (
         <div>
-          <h2>{smurf.name}</h2>
-          <p>{smurf.age}</p>
-          <p>{smurf.height}</p>
+          <h2>{blueGuy.name}</h2>
+          <p>{blueGuy.age}</p>
+          <p>{blueGuy.height}</p>
         </div>
       ))}
      </div>
