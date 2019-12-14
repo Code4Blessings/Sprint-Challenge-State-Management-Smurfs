@@ -1,5 +1,7 @@
 import React,{ useState, useContext, useEffect } from 'react';
 import  SmurfContext  from './context/SmurfContext';
+import './Smurfs.css';
+
 import axios from 'axios';
 
 const SmurfForm = () => {
@@ -37,8 +39,9 @@ const SmurfForm = () => {
                 <label htmlFor="name">Name:
                 <input 
                 onChange={handleChange}
-                name="name" 
+                name="name"
                 type="text"/>
+                value={smurfs.name}
                 </label>
 
                 <label htmlFor="name">Height:

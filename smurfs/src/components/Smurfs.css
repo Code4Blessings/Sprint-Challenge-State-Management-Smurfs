@@ -5,7 +5,7 @@
     line-height: 2;
     font-size: 20px;
     margin-top: 20px;
-    color: #fff;
+    
 }
 
 label {
@@ -23,7 +23,7 @@ input {
 }
 
 button {
-    background: orange;
+    background: lightblue;
     border: 1px solid #fff;
     padding: 10px 15px;
     font-size: 16px;
