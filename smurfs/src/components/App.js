@@ -13,6 +13,7 @@ function App() {
       name: smurf.name,
       age: smurf.age,
       height: smurf.height,
+      id: Date.now()
     }
     setSmurf([...smurf, newSmurf])
   }

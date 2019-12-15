@@ -1,4 +1,4 @@
-import React,{ useState, useContext } from 'react';
+import React,{ useState, useContext, useEffect } from 'react';
 import  SmurfContext  from './context/SmurfContext';
 import './Smurfs.css';
 
@@ -12,16 +12,16 @@ const SmurfForm = () => {
         age: ''
     });
     
-    /*useEffect(() => {
+    useEffect(() => {
         axios.get('http://localhost:3333/smurfs')
         .then(response => {
             console.log(response);
-            setSmurfs(response.data)
+            //setSmurfs(response.data)
         })
         .catch(error => {
             console.log('Data returned an error', error)
         }) 
-    },[]); */
+    },[]); 
 
     const handleChange = event => {
         setSmurfs({
@@ -35,6 +35,7 @@ const SmurfForm = () => {
         axios.post('http://localhost:3333/smurfs', smurfs)
             .then(response => {
                 console.log(response)
+                setSmurfs(response.data);
             })
             .catch(error => {
                 console.log('Data returned an error', error)
