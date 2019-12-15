@@ -1,4 +1,4 @@
-import React,{ useState, useContext, useEffect } from 'react';
+import React,{ useState, useContext } from 'react';
 import  SmurfContext  from './context/SmurfContext';
 import './Smurfs.css';
 
@@ -30,8 +30,7 @@ const SmurfForm = () => {
     }
 
     const submitForm = (event) => {
-        event.preventDefault()
-        //addNewSmurf(smurf)
+        event.preventDefault();
         console.log(smurfs);
         axios.post('http://localhost:3333/smurfs', smurfs)
             .then(response => {
@@ -47,6 +46,7 @@ const SmurfForm = () => {
                 <label htmlFor="name">Name:
                 <input 
                 onChange={handleChange}
+                id="name"
                 name="name"
                 type="text"
                 value={smurfs.name}/>
@@ -55,6 +55,7 @@ const SmurfForm = () => {
                 <label htmlFor="name">Height:
                 <input 
                 onChange={handleChange} 
+                id="height"
                 name="height" 
                 type="text"
                 value={smurfs.height} />
@@ -63,6 +64,7 @@ const SmurfForm = () => {
                 <label htmlFor="name">Age:
                 <input 
                 onChange={handleChange}
+                id="age"
                 name="age" 
                 type="text"
                 value={smurfs.age} />

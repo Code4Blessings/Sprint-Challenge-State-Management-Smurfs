@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Smurfs from "./Smurfs";
 import SmurfForm from "./SmurfForm";
+import SmurfList from "./SmurfList";
 import SmurfContext from "./context/SmurfContext";
 import "./App.css";
 
@@ -25,7 +25,7 @@ function App() {
           <div>Welcome to your state management version of Smurfs!</div>
           <div>Have fun!</div>
             <SmurfForm />
-            <Smurfs />
+            <SmurfList />
         </SmurfContext.Provider>
       </div>
     );
