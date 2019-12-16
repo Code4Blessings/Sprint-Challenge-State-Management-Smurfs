@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, } from "react";
+import axios from 'axios';
 import SmurfForm from "./SmurfForm";
 import SmurfList from "./SmurfList";
 import SmurfContext from "./context/SmurfContext";
@@ -7,6 +8,17 @@ import "./App.css";
 
 function App() {
   const [smurf, setSmurf] = useState([]);
+
+   useEffect(() => {
+        axios.get('http://localhost:3333/smurfs')
+        .then(response => {
+            console.log('get respinse', response.data);
+            setSmurf(response.data)
+        })
+        .catch(error => {
+            console.log('Data returned an error', error)
+        }) 
+    },[]); 
 
   const addNewSmurf = smurf => {
     const newSmurf = {

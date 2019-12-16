@@ -1,4 +1,4 @@
-import React,{ useState, useContext, useEffect } from 'react';
+import React,{ useState, useContext, } from 'react';
 import  SmurfContext  from './context/SmurfContext';
 import './Smurfs.css';
 
@@ -12,16 +12,6 @@ const SmurfForm = () => {
         age: ''
     });
     
-    useEffect(() => {
-        axios.get('http://localhost:3333/smurfs')
-        .then(response => {
-            console.log(response);
-            //setSmurfs(response.data)
-        })
-        .catch(error => {
-            console.log('Data returned an error', error)
-        }) 
-    },[]); 
 
     const handleChange = event => {
         setSmurfs({
@@ -34,7 +24,7 @@ const SmurfForm = () => {
         console.log(smurfs);
         axios.post('http://localhost:3333/smurfs', smurfs)
             .then(response => {
-                console.log(response)
+                console.log(response.data)
                 setSmurfs(response.data);
             })
             .catch(error => {
@@ -43,7 +33,8 @@ const SmurfForm = () => {
     }
 
         return (
-            <form onSubmit={submitForm} className="form-container">
+            <form onSubmit={submitForm} 
+            className="form-container">
                 <label htmlFor="name">Name:
                 <input 
                 onChange={handleChange}
@@ -71,7 +62,7 @@ const SmurfForm = () => {
                 value={smurfs.age} />
                 </label>
 
-                <button type='submit' onClick={() => {addNewSmurf(smurf)}}>Add New Smurf</button>
+                <button onClick={() => {addNewSmurf(smurf)}}>Add New Smurf</button>
             </form>
         )
     }    

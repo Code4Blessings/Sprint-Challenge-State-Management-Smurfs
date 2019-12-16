@@ -3,16 +3,21 @@ import SmurfContext from './context/SmurfContext';
 import Smurf from './Smurf';
 
 
+
+
 const SmurfList = () => {
     const { smurf, addNewSmurf } = useContext(SmurfContext);
+    console.log(smurf);
     return (
         <div>
-          {smurf.map(blueGuy => (
+            <h2>Hello From Smurf Village</h2>
+          {smurf.map(blueGuy => 
                 <Smurf 
                     key={blueGuy.id} 
                     smurf={blueGuy}
-                    addNewSmurf={addNewSmurf} />
-            ))}  
+                addNewSmurf={addNewSmurf} />
+            )} 
+           
         </div>
     );
 };
